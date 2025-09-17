@@ -105,7 +105,7 @@
       { username: "admin", password: "gustaffhosting123" },
       { username: "gustaf", password: "panel2025" },
       { username: "user", password: "cpanelv2" },
-      { username: "reseller", password: "gaming2023" }
+      { username: "reseller", password: "gustaf2025" }
     ];
 
     let loginAttempts = 0;
@@ -163,8 +163,8 @@
           document.getElementById('loginStep').classList.add('hidden');
           document.getElementById('step1').classList.remove('hidden');
           
-          // Tampilkan kontrol admin hanya jika login dengan admin/gustafhosting123
-          if (adminUsername === "admin" && adminPassword === "gustafhosting123") {
+          // Tampilkan kontrol admin hanya jika login dengan admin/gustaffhosting123
+          if (adminUsername === "admin" && adminPassword === "gustaffhosting123") {
             document.getElementById('adminControls').classList.remove('hidden');
           }
           
@@ -303,6 +303,4 @@
           validateLogin();
         }
       });
-
     });
-
