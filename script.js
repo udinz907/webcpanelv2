@@ -103,8 +103,8 @@
     // Valid credentials (4 username dan password)
     const validCredentials = [
       { username: "admin", password: "gustafhosting123" },
-      { username: "gustaf", password: "panel2023" },
-      { username: "hosting", password: "cpanelv1" },
+      { username: "gustaf", password: "panel2025" },
+      { username: "hosting", password: "cpanelv2" },
       { username: "reseller", password: "gaming2023" }
     ];
 
@@ -303,4 +303,5 @@
           validateLogin();
         }
       });
+
     });
