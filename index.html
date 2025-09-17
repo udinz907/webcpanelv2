@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPANEL V1 | GUSTAF HOSTING</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  	
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      overflow-y: auto; /* Memastikan scroll vertikal aktif */
+    }
+
+    .background-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px);
+      }
+      50% {
+        transform: translateY(-35px) translateX(-15px);
+      }
+      75% {
+        transform: translateY(-15px) translateX(5px);
+      }
+    }
+
+    .card-container {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 450px;
+      margin: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 35px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 6s infinite;
+      z-index: 0;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -50%;
+      }
+      20% {
+        left: 100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 15px rgba(0, 82, 204, 0.5));
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 15px;
+      background: linear-gradient(to right, #fff, #a7c4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 10px rgba(0, 82, 204, 0.3);
+    }
+
+    .logo p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 5px;
+    }
+
+    .input-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .input-field {
+      position: relative;
+    }
+
+    .input-field input, .input-field select {
+      width: 100%;
+      padding: 16px 20px 16px 50px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .input-field input:focus, .input-field select:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 82, 204, 0.5);
+      box-shadow: 0 0 15px rgba(0, 82, 204, 0.3);
+    }
+
+    .input-field i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 18px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #0052cc, #3385ff);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 82, 204, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 82, 204, 0.6);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 10px rgba(0, 82, 204, 0.4);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success-box {
+      background: rgba(0, 82, 204, 0.15);
+      border: 1px solid rgba(0, 82, 204, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      font-size: 14px;
+      color: #e6f0ff;
+      margin-bottom: 25px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .success-box b {
+      color: #fff;
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    .success-box a {
+      color: #80b3ff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .success-box a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 25px;
+      }
+      
+      .logo img {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .logo h1 {
+        font-size: 24px;
+      }
+    }
+
+    .loading {
+      display: none;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .btn-loading .loading {
+      display: block;
+    }
+
+    .btn-loading span {
+      visibility: hidden;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .input-error {
+      border-color: #ff6b6b !important;
+      box-shadow: 0 0 10px rgba(255, 107, 107, 0.3) !important;
+    }
+
+    .login-form {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #a7c4ff;
+    }
+    
+    .attempts-info {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .maintenance-mode {
+      text-align: center;
+      padding: 15px;
+      background: rgba(255, 107, 107, 0.2);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 107, 107, 0.3);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+    
+    .maintenance-mode i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ff6b6b;
+    }
+    
+    .maintenance-mode h3 {
+      color: #ff6b6b;
+      margin-bottom: 5px;
+    }
+    
+    .maintenance-mode p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .admin-controls {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 82, 204, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 82, 204, 0.3);
+    }
+    
+    .admin-controls h4 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #a7c4ff;
+    }
+    
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .toggle-label {
+      font-size: 14px;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ff6b6b;
+      transition: .4s;
+      border-radius: 30px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #4cd964;
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-animation">
+    <div class="particles" id="particles"></div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <div class="card-content">
+        <div class="logo">
+          <img src="https://i.imghippo.com/files/sEL9462BdI.png" alt="Gustaf Hosting Logo">
+          <h1>GUSTAF HOSTING</h1>
+          <p>CPANEL V2 - PRIVATE</p>
+        </div>
+
+        <div id="maintenanceNotice" class="maintenance-mode hidden">
+          <i class="fas fa-tools"></i>
+          <h3>Server Sedang Maintenance</h3>
+          <p>Kami sedang melakukan pemeliharaan server. Silakan coba lagi nanti.</p>
+        </div>
+
+        <div id="loginStep">
+          <div class="login-form">
+            <div class="form-title">Login</div>
+            <div class="input-group">
+              <label for="adminUsername">Username </label>
+              <div class="input-field">
+                <i class="fas fa-user-shield"></i>
+                <input type="text" id="adminUsername" placeholder="Masukkan username">
+              </div>
+              <div id="adminUsernameError" class="error-message">Username harus diisi</div>
+            </div>
+
+            <div class="input-group">
+              <label for="adminPassword">Password</label>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="adminPassword" placeholder="Masukkan password admin">
+              </div>
+              <div id="adminPasswordError" class="error-message">Password harus diisi</div>
+            </div>
+            <button id="loginBtn" class="btn" onclick="validateLogin()">
+              <span>Login</span>
+              <div class="loading"></div>
+            </button>
+            <div class="attempts-info">
+              <p>Percobaan login: <span id="attemptCount">0</span>/3</p>
+            </div>
+          </div>
+        </div>
+        <div id="step1" class="hidden">
+          <!-- Hanya tampilkan kontrol admin jika login dengan admin/gustafhosting123 -->
+          <div id="adminControls" class="admin-controls hidden">
+            <h4>Kontrol Admin</h4>
+            <div class="toggle-container">
+              <span class="toggle-label">Maintenance Mode:</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="maintenanceToggle" onchange="toggleMaintenanceMode()">
+                <span class="slider"></span>
+              </label>
+              <span id="maintenanceStatus" class="toggle-label">Nonaktif</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="username">Username</label>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id="username" placeholder="Masukkan username">
+            </div>
+            <div id="usernameError" class="error-message">Username harus diisi (minimal 3 karakter)</div>
+          </div>
+          <div class="input-group">
+            <label for="paket">Paket RAM</label>
+            <div class="input-field">
+              <i class="fas fa-memory"></i>
+              <select id="paket">
+                <option value="">-- Pilih Paket --</option>
+                <option value="1gb">1GB - Starter</option>
+                <option value="2gb">2GB - Basic</option>
+                <option value="3gb">3GB - Standard</option>
+                <option value="4gb">4GB - Advanced</option>
+                <option value="5gb">5GB - Professional</option>
+                <option value="6gb">6GB - Business</option>
+                <option value="7gb">7GB - Enterprise</option>
+                <option value="8gb">8GB - Premium</option>
+                <option value="9gb">9GB - Elite</option>
+                <option value="10gb">10GB - Ultimate</option>
+                <option value="unli">Unlimited - Supreme</option>
+              </select>
+            </div>
+            <div id="paketError" class="error-message">Silakan pilih paket RAM</div>
+          </div>
+          <button id="submitBtn" class="btn" onclick="buatPanel()">
+            <span>Buat Panel</span>
+            <div class="loading"></div>
+          </button>
+        </div>
+        <div id="step2" class="hidden">
+          <div class="success-box">
+            <b>Email:</b> <span id="email"></span><br>
+            <b>Username:</b> <span id="uname"></span><br>
+            <b>Password:</b> <span id="pass"></span><br>
+            <b>Link:</b> <a href="https://domainpanel.resellergaming.my.id" target="_blank">Buka Panel</a><br>
+            <b>Paket:</b> <span id="ram"></span>
+          </div>
+          <button class="btn" onclick="resetForm()">
+            <span>Buat Panel Lagi</span>
+          </button>
+        </div>
+        <div class="footer">
+          &copy; 2023 Gustaf Hosting | <a href="#">Terms of Service</a> | <a href="https://t.me/adhityagustaf22">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>
