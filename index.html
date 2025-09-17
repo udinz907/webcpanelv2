@@ -501,15 +501,18 @@
               </div>
               <div id="adminPasswordError" class="error-message">Password harus diisi</div>
             </div>
+
             <button id="loginBtn" class="btn" onclick="validateLogin()">
               <span>Login</span>
               <div class="loading"></div>
             </button>
+            
             <div class="attempts-info">
               <p>Percobaan login: <span id="attemptCount">0</span>/3</p>
             </div>
           </div>
         </div>
+
         <div id="step1" class="hidden">
           <!-- Hanya tampilkan kontrol admin jika login dengan admin/gustafhosting123 -->
           <div id="adminControls" class="admin-controls hidden">
@@ -523,6 +526,7 @@
               <span id="maintenanceStatus" class="toggle-label">Nonaktif</span>
             </div>
           </div>
+
           <div class="input-group">
             <label for="username">Username</label>
             <div class="input-field">
@@ -531,6 +535,7 @@
             </div>
             <div id="usernameError" class="error-message">Username harus diisi (minimal 3 karakter)</div>
           </div>
+
           <div class="input-group">
             <label for="paket">Paket RAM</label>
             <div class="input-field">
@@ -552,29 +557,32 @@
             </div>
             <div id="paketError" class="error-message">Silakan pilih paket RAM</div>
           </div>
+
           <button id="submitBtn" class="btn" onclick="buatPanel()">
             <span>Buat Panel</span>
             <div class="loading"></div>
           </button>
         </div>
+
         <div id="step2" class="hidden">
           <div class="success-box">
             <b>Email:</b> <span id="email"></span><br>
             <b>Username:</b> <span id="uname"></span><br>
             <b>Password:</b> <span id="pass"></span><br>
-            <b>Link:</b> <a href="https://domainpanel.resellergaming.my.id" target="_blank">Buka Panel</a><br>
+            <b>Login:</b> <a href="https://t.me/adhityagustaf22" target="_blank">Buka Panel</a><br>
             <b>Paket:</b> <span id="ram"></span>
           </div>
           <button class="btn" onclick="resetForm()">
             <span>Buat Panel Lagi</span>
           </button>
         </div>
+
         <div class="footer">
-          &copy; 2023 Gustaf Hosting | <a href="#">Terms of Service</a> | <a href="https://t.me/adhityagustaf22">Privacy Policy</a>
+          &copy; 2025 Gustaf Hosting | <a href="#">Terms of Service</a> | <a href="https://t.me/adhityagustaf22">Privacy Policy</a>
         </div>
       </div>
     </div>
   </div>
-  <script src="script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
